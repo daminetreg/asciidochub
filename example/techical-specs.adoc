@@ -1,0 +1,22 @@
+= BLOCKCHAIN INTEGRITY PROJECT – MVP1
+:source-highlighter: highlightjs
+:toc:
+:toclevels: 5
+:numbered:
+:xrefstyle: full
+:sectnums:
+:data-uri:
+John Doe <john.doe@gmail.com>
+v2.0, 2019-09-05
+
+== Introduction
+Some blabla
+
+== Contents from Github Issues
+include::nxxm/nxxm#3[]
+
+== Other
+include::nxxm/nxxm#4[]
+
+== Conclusion
+It's a marvelous document

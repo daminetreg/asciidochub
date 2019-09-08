@@ -1,0 +1,6 @@
+#!/usr/bin/ruby
+require 'kramdown-asciidoc'
+
+print Kramdoc.convert $stdin.read
+
+
