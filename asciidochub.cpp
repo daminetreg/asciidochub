@@ -55,7 +55,8 @@ int main(int argc, char** argv) {
         bp::ipstream out;
         bp::child c("./convert-markdown-to-asciidoc", bp::std_out > out, bp::std_in < in);
 
-        in << "### " << issue.title << "\n\n";
+        in << "### " << issue.title << "( #" << issue.number << " )\n\n";
+        in << "_Discussion and History on Github : [#" << issue.number << "](" << issue.html_url << ")._\n\n";
         in << issue.body << std::endl;
 
         in.pipe().close();
