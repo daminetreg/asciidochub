@@ -47,9 +47,7 @@ int main(int argc, char** argv) {
       space
     );
 
-    if ( (!r) && (first != last)) {
-      std::cout << line << "\n";
-    } else if ( (r) && (first == last) ) {
+    if ( (r) && (first == last) ) {
       gh::get_issue(owner, repo, issue, [](gh::repos::issue_t&& issue) {
 
         namespace bp = boost::process;
@@ -57,18 +55,20 @@ int main(int argc, char** argv) {
         bp::ipstream out;
         bp::child c("./convert-markdown-to-asciidoc", bp::std_out > out, bp::std_in < in);
 
-        in << "## " << issue.title << "\n\n";
+        in << "### " << issue.title << "\r\n\r\n";
         in << issue.body << std::endl;
 
         in.pipe().close();
         c.wait();
 
-        std::cout << "\n\n";
+        std::cout << "\r\n";
         std::cout << out.rdbuf();
-        std::cout << "\n\n";
+        std::cout << "\r\n";
 
       }, auth, gh_api_endpoint);
 
+    } else {
+      std::cout << line << "\r\n";
     }
 
   }
