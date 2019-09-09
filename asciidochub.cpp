@@ -55,20 +55,20 @@ int main(int argc, char** argv) {
         bp::ipstream out;
         bp::child c("./convert-markdown-to-asciidoc", bp::std_out > out, bp::std_in < in);
 
-        in << "### " << issue.title << "\r\n\r\n";
+        in << "### " << issue.title << "\n\n";
         in << issue.body << std::endl;
 
         in.pipe().close();
         c.wait();
 
-        std::cout << "\r\n";
+        std::cout << "\n";
         std::cout << out.rdbuf();
-        std::cout << "\r\n";
+        std::cout << "\n";
 
       }, auth, gh_api_endpoint);
 
     } else {
-      std::cout << line << "\r\n";
+      std::cout << line << "\n";
     }
 
   }
